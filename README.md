@@ -44,7 +44,7 @@
 
 
 ## Run NATS Server
-I build the `nats-server` binary from the latest `master` branch.
+I built the `nats-server` binary from the latest `master` branch.
 
 ```shell
 $ cd $HOME/go/src/github.com/nats-io/nats-server
