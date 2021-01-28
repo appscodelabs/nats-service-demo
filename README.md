@@ -56,6 +56,8 @@ $ nats-server -c confs/server.conf
 
 ## Publish/Subscribe to Channel
 
+***Facing issues for `service` type export/import***
+
 ### pub/sub to `stream` type channel
 
 ```shell
