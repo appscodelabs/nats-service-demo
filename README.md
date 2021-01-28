@@ -3,10 +3,10 @@
 ## Accounts
 
 - My configuration for NATS Server export/import
-    - confs/server.conf is the server configuration
+    - `confs/server.conf` is the server configuration
 
 
-    - confs/X-account.jwt is the export account, here included `exports` preview
+    - `confs/X-account.jwt` is the export account, here included `exports` preview
         ```
         "exports": [
             {
@@ -22,7 +22,7 @@
             }
         ]
         ```
-    - confs/Admin-account.jwt is the import account, here included `imports` preview
+    - `confs/Admin-account.jwt` is the import account, here included `imports` preview
         ```
         "imports": [
             {
@@ -52,6 +52,7 @@ $ go install -v ./...
 
 $ nats-server -c confs/server.conf
 ```
+
 
 ## Publish/Subscribe to Channel
 
