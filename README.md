@@ -101,3 +101,20 @@ $ nats sub ">" --creds confs/admin.creds
 [#1] Received on "user.x.Events"
 Hello there
 ```
+
+
+### Req/Reply procedure
+
+```shell
+$ nats reply 'Notifications' --creds confs/x.creds
+19:03:28 No body or command supplied, enabling echo mode
+19:03:28 Listening on "Notifications" in group "NATS-RPLY-22"
+```
+
+```shell
+$ nats req 'user.x.Notifications' "Hello there" --creds confs/admin.creds
+19:03:32 Sending request on "user.x.Notifications"
+nats: error: nats: no responders available for request, try --help
+```
+
+**NB: Also failed in this trial.**
