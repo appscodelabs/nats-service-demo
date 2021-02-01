@@ -100,6 +100,7 @@ $ cat confs/srv_consumer.json
     "ack_policy": "explicit",
     "ack_wait": 30000000000,
     "max_deliver": -1,
+    "deliver_subject": "my.Notifications",
     "filter_subject": "Notifications",
     "replay_policy": "instant"
   }
@@ -111,33 +112,19 @@ $ nats pub user.x.Notifications "Hello Notifications" --creds confs/admin.creds
 $ nats pub user.x.Notifications "Hello Notifications 2" --creds confs/admin.creds
 ```
 
-### Get next message by user x
+### Subscribe to deliver subject by User-X
+
 ```shell
-$ nats con next Notifications ProcessNotifications --creds confs/x.creds
---- subject: Notifications
+$ nats sub my.Notifications --creds confs/x.creds
+19:43:27 Subscribing on my.Notifications
+[#1] Received JetStream message: consumer: Notifications > ProcessNotifications / subject: Notifications / delivered: 1 / consumer seq: 1 / stream seq: 1 / ack: false
+Nats-Request-Info: {"acc":"AAVOHCQ2R2QICRH427VEOWEXM3A5M4LG6OPFARZYHK2T77ZQCCKFUBFQ","rtt":1340140}
 
-Headers:
+Hello there
 
-  Nats-Request-Info: {"acc":"AAVOHCQ2R2QICRH427VEOWEXM3A5M4LG6OPFARZYHK2T77ZQCCKFUBFQ","rtt":1250574}
+[#2] Received JetStream message: consumer: Notifications > ProcessNotifications / subject: Notifications / delivered: 1 / consumer seq: 2 / stream seq: 2 / ack: false
+Nats-Request-Info: {"acc":"AAVOHCQ2R2QICRH427VEOWEXM3A5M4LG6OPFARZYHK2T77ZQCCKFUBFQ","rtt":917444}
 
-Data:
+Hello there 2
 
-
-Hello Notifications
-
-Acknowledged message
-
-$ nats con next Notifications ProcessNotifications --creds confs/x.creds
---- subject: Notifications
-
-Headers:
-
-  Nats-Request-Info: {"acc":"AAVOHCQ2R2QICRH427VEOWEXM3A5M4LG6OPFARZYHK2T77ZQCCKFUBFQ","rtt":941554}
-
-Data:
-
-
-Hello Notifications 2
-
-Acknowledged message
 ```
