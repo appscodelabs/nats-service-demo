@@ -1,0 +1,10 @@
+{
+    "durable_name": "ProcessNotifications",
+    "deliver_policy": "all",
+    "ack_policy": "explicit",
+    "ack_wait": 30000000000,
+    "max_deliver": -1,
+    "deliver_subject": "my.Notifications",
+    "filter_subject": "Notifications",
+    "replay_policy": "instant"
+  }
